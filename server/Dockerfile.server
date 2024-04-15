@@ -1,0 +1,23 @@
+FROM golang:alpine as build
+
+#RUN mkdir /application
+WORKDIR /application
+
+#copying source code over
+COPY . .
+
+# building server binary
+RUN go build -o server .
+
+#running server on alpine
+FROM alpine:latest
+
+#RUN mkdir /application
+WORKDIR /application
+
+#binary to final image
+COPY --from=build /application/server .
+
+CMD ["./server"]
+
+

@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  http-testserver:
+    build:
+      context: ./server
+      dockerfile: Dockerfile.test
+
+  http-testclient:
+    build:
+      context: ./client
+      dockerfile: Dockerfile.test

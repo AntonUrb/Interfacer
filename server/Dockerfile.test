@@ -1,0 +1,17 @@
+# Use the Alpine image with Go pre-installed
+FROM golang:alpine as test
+
+# Set the working directory
+WORKDIR /application
+
+# Copy the source code
+COPY . .
+
+# Run tests with verbose output
+RUN go test -v ./... -count=1
+
+# Use a minimal Alpine image for the final stage
+FROM alpine:latest
+
+# Print a message indicating that tests are completed
+CMD echo "Tests completed successfully"
