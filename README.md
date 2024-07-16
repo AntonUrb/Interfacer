@@ -1,4 +1,4 @@
-# Milrem Internship Tooling Assignment
+# Interfacer
 
 This microservice application provides information about network interfaces through a simple HTTP API. It consists of two components: an HTTP server and an HTTP client, both running in separate Docker containers.
 **The application is written in Go and deployed on Docker.**
